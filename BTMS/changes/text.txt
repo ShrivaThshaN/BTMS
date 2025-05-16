@@ -1,0 +1,571 @@
+https://github.com/ParthJadhav/Tkinter-Designer
+
+https://www.figma.com/design/1d33ZhYsOVCzeXl3mnKO4C/Untitled?node-id=0-1&t=zPNAQ96V7G55OW28-1
+delta-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockpile Temperature Monitoring System: Delta T Values</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        /* Custom styles */
+        th {
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .bg-black {
+            background-color: #808080 !important;
+            text-align: center;
+        }
+
+        .bg-grey {
+            background-color: #808080 !important;
+        }
+
+        #myTable {
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .mt-4 {
+            margin-top: 1.5rem !important;
+        }
+
+        .card-body {
+            padding: 0.75rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        .table {
+            width: 100%;
+            margin-bottom: 1rem;
+            color: #212529;
+        }
+
+        .table th,
+        .table td {
+            padding: 0.75rem;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .table thead th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .table tbody + tbody {
+            border-top: 2px solid #dee2e6;
+        }
+
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .table-hover tbody tr:hover {
+            background-color: rgba(0, 0, 0, 0.075);
+        }
+
+        .table-primary,
+        .table-primary > th,
+        .table-primary > td {
+            background-color: #b8daff;
+        }
+
+        .table-hover .table-primary:hover {
+            background-color: #9fcdff;
+        }
+
+        .table-hover .table-primary:hover > td,
+        .table-hover .table-primary:hover > th {
+            background-color: #9fcdff;
+        }
+
+        @media (max-width: 575.98px) {
+            .table-responsive-sm {
+                display: block;
+                width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                -ms-overflow-style: -ms-autohiding-scrollbar;
+            }
+            .table-responsive-sm > .table-bordered {
+                border: 0;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .table-responsive-md {
+                display: block;
+                width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                -ms-overflow-style: -ms-autohiding-scrollbar;
+            }
+            .table-responsive-md > .table-bordered {
+                border: 0;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .table-responsive-lg {
+                display: block;
+                width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                -ms-overflow-style: -ms-autohiding-scrollbar;
+            }
+            .table-responsive-lg > .table-bordered {
+                border: 0;
+            }
+        }
+
+        @media (max-width: 1199.98px) {
+            .table-responsive-xl {
+                display: block;
+                width: 100%;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                -ms-overflow-style: -ms-autohiding-scrollbar;
+            }
+            .table-responsive-xl > .table-bordered {
+                border: 0;
+            }
+        }
+
+        .table-responsive {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            -ms-overflow-style: -ms-autohiding-scrollbar;
+        }
+
+        .table-responsive > .table-bordered {
+            border: 0;
+        }
+
+
+        .fun{
+            padding: 40px 0px 40px;
+            background-color: #e8e3e8;
+            text-align: left;
+            text-decoration: solid;
+            box-shadow: #000;
+
+
+        }
+
+        #clock{
+            color: #070808;
+
+            
+        }
+        .fun{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120px; 
+            background-color: #fff;
+            box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.45);
+            text-align: center;
+            
+            font-size: 15px;
+            font-weight: bold;
+            z-index: 1000;
+            transition: opacity 0.5s;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+            
+        }
+
+        .fun2{
+            padding-top: 130px;
+        }
+    </style>
+</head>
+<body>
+    <header class="fun">
+        <h3>Blockpile Temperature Monitoring System : Delta T values</h3>
+    </header>
+
+    <footer class="fun2">
+        <div class="container mt-4">
+            <table class="table table-striped mt-4">
+                <thead>
+                    <tr class="bg-black">
+                        <th class="bg-black">S.NO</th>
+                        <th class="bg-grey">Elevation</th>
+                        <th class="bg-black">Signal Tag Names</th>
+                        <th class="bg-grey">Tmax</th>
+                        <th class="bg-black">Tmin</th>
+                        <th class="bg-grey">DeltaT</th>
+                    </tr>
+                </thead>
+                <tbody id="myTable">
+                    <!-- Table rows will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </footer>
+
+    <script>
+        // Define constant values
+        const snoValues = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11' ,'12'];
+        const elevationValues = ['-1215', '-3600', '-3950', '-7650', '-8300', '-9000', '-10500', '-11000', '-12000', '-8100', '-7250', '5200'];
+        const signalTagNames = [
+            ['TPM065', 'TPM066', 'TPM067', 'TPM068'],
+            ['TPM057', 'TPM058', 'TPM059', 'TPM060'],
+            ['TPM053', 'TPM054', 'TPM055', 'TPM056'],
+            ['TPM042', 'TPM044'],
+            ['TPM038', 'TPM040'],
+            ['TPM074', 'TPM075'],
+            ['TPM072', 'TPM073'],
+            ['TPM010', 'TPM012'],
+            ['TPM070', 'TPM071'],
+            ['TPM076', 'TPM077'],
+            ['TPM005', 'TPM006', 'TPM007', 'TPM008'],
+            ['TPM002', 'TPM004']
+        ];
+
+        // Define the signal dictionary
+        const signaldict = {
+            1: "TPM065", 2: "TPM066", 3: "TPM067", 4: "TPM068",
+            5: "TPM057", 6: "TPM058", 7: "TPM059", 8: "TPM060",
+            9: "TPM053", 10: "TPM054", 11: "TPM055", 12: "TPM056",
+            13: "TPM042", 14: "TPM044", 15: "TPM038", 16: "TPM040",
+            17: "TPM074", 18: "TPM075", 19: "TPM072", 20: "TPM073",
+            21: "TPM010", 22: "TPM012", 23: "TPM070", 24: "TPM071",
+            25: "TPM076", 26: "TPM077", 27: "TPM005", 28: "TPM006",
+            29: "TPM007", 30: "TPM008", 31: "TPM002", 32: "TPM004"
+        };
+
+        // Function to update table with fetched temperatures
+        function updateTable(temperatures) {
+            let table = document.getElementById('myTable');
+            table.innerHTML = '';
+            for (let i = 0; i < temperatures.length; i++) {
+                let elevation = elevationValues[i];
+                let tagNames = signalTagNames[i].join(', ');
+                let maxTemp = Math.max(...temperatures[i]).toFixed(1);
+                let minTemp = Math.min(...temperatures[i]).toFixed(1);
+                let deltaTemp = (maxTemp - minTemp).toFixed(1);
+                
+                let row = `<tr>
+                               <td>${snoValues[i]}</td>
+                               <td>${elevation}</td>
+                               <td>${tagNames}</td>
+                               <td>${maxTemp}</td>
+                               <td>${minTemp}</td>
+                               <td>${deltaTemp}</td>
+                           </tr>`;
+                table.innerHTML += row;
+            }
+        }
+
+        // Function to fetch temperatures from server
+        function fetchTemperatures() {
+            // Simulated fetching temperatures from server (replace with actual fetching logic)
+            let temp = [];
+            for (let i = 0; i < 32; i++) {
+                temp.push(Math.random() * 50); // Simulated random temperature values
+            }
+            return temp;
+        }
+
+        // Function to periodically update temperatures
+        function updateTemperatures() {
+            // Fetch temperatures from server
+            let temperatures = [];
+            for (let i = 0; i < 251; i++) {
+                temperatures.push(fetchTemperatures());
+            }
+
+            // Update table with fetched temperatures
+            updateTable(temperatures);
+        }
+
+        // Update temperatures initially
+        updateTemperatures();
+
+        // Update temperatures every 30 seconds
+        setInterval(updateTemperatures, 30000);
+    </script>
+</body>
+</html>
+
+app2-
+const pool = require('./pool');
+
+// Query to get all columns except the first two
+function getAllInstantTable(callback) {
+    // Query to get column names excluding the first two columns
+    const queryColumns = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'instant_table' AND ORDINAL_POSITION > 2";
+    
+    pool.query(queryColumns, (err, columns) => {
+        if (err) {
+            callback(err, null);
+            return;
+        }
+
+        // Create the column list for the SELECT query
+        const columnList = columns.map(col => col.COLUMN_NAME).join(', ');
+
+        // Query to select all data except the first two columns
+        const queryData = `SELECT ${columnList} FROM instant_table`;
+
+        pool.query(queryData, (err, rows) => {
+            if (err) {
+                callback(err, null);
+                return;
+            }
+
+            callback(null, rows);
+        });
+    });
+}
+
+module.exports = {
+    getAllInstantTable
+};
+
+exp.js-
+const express = require('express');
+const app = express();
+const db = require('./app');
+const db2 = require('./app2'); // Import the new database module
+const cors = require('cors'); // Import CORS middleware
+
+app.use(cors());
+
+// Route for the first database
+app.get('/signal_info', (req, res) => {
+    db.getAllSignalInfo((err, data) => {
+        if (err) {
+            res.status(500).json({ error: 'Failed to fetch data' });
+            return;
+        }
+
+        // Log data to console
+        console.log('Data received from signal_info:');
+        console.log(data);
+
+        // Send data as JSON response
+        res.json(data);
+    });
+});
+
+// Route for the second database
+app.get('/instant_info', (req, res) => {
+    db2.getAllInstantTable((err, data) => {
+        if (err) {
+            res.status(500).json({ error: 'Failed to fetch data' });
+            return;
+        }
+
+        // Log data to console
+        console.log('Data received from instant_table:');
+        console.log(data);
+
+        // Send data as JSON response
+        res.json(data);
+    });
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+index-
+document.addEventListener('DOMContentLoaded', function() {
+    const tables = [
+        { id: 'data-table', listId: 'data-list' },
+        { id: 'data-table2', listId: 'data-list2' },
+        { id: 'data-table3', listId: 'data-list3' },
+        { id: 'data-table4', listId: 'data-list4' },
+        { id: 'data-table5', listId: 'data-list5' },
+        { id: 'data-table6', listId: 'data-list6' }
+    ];
+
+    const dataTables = tables.map(table => document.getElementById(table.id));
+    const tableBodies = tables.map(table => document.getElementById(table.listId));
+
+    const searchInput = document.getElementById('search-input');
+    const searchButton = document.getElementById('search-button');
+    const column1Filter = document.getElementById('column1-filter');
+    const column2Filter = document.getElementById('column2-filter');
+    const column3Filter = document.getElementById('column3-filter');
+    const paginationWrapper = document.getElementById('pagination-wrapper');
+    let currentPage = 1;
+    const rowsPerPage = 10;
+    const totalData = 251;
+    let searchTerm = '';
+    let allData = [];
+    let tempData = [];
+    let tagNames = [];
+
+    // Fetch data from the first endpoint
+    fetch('http://localhost:3000/signal_info')
+        .then(response => response.json())
+        .then(data => {
+            tagNames = data.map(item => item.Tagname);
+            allData = generateAllData(tagNames);
+            initializeTables();
+        })
+        .catch(error => {
+            console.error('Error fetching data from signal_info:', error);
+        });
+
+    // Fetch data from the second endpoint
+    fetch('http://localhost:3000/instant_info')
+        .then(response => response.json())
+        .then(data => {
+            tempData = data;
+            console.log('Temp data received:', tempData);
+        })
+        .catch(error => {
+            console.error('Error fetching data from instant_info:', error);
+        });
+
+    function initializeTables() {
+        tables.forEach((table, index) => {
+            table.data = allData.slice(index * rowsPerPage, (index + 1) * rowsPerPage);
+            buildTable(index, table.data);
+        });
+
+        updatePagination();
+    }
+
+    //--------------------------------------------------------------------------------------
+
+    searchInput.addEventListener('input', function() {
+        searchTerm = searchInput.value.toLowerCase();
+    });
+
+    searchButton.addEventListener('click', function() {
+        updateTables(searchTerm, 'TagName');
+        currentPage = 1;
+        updatePagination();
+    });
+
+    column1Filter.addEventListener('keyup', function() {
+        const filterTerm = column1Filter.value.toLowerCase();
+        updateTables(filterTerm, 'SID');
+        currentPage = 1;
+        updatePagination();
+    });
+
+    column2Filter.addEventListener('keyup', function() {
+        const filterTerm = column2Filter.value.toLowerCase();
+        updateTables(filterTerm, 'TagName');
+        currentPage = 1;
+        updatePagination();
+    });
+
+    column3Filter.addEventListener('keyup', function() {
+        const filterTerm = column3Filter.value.toLowerCase();
+        updateTables(filterTerm, 'Value');
+        currentPage = 1;
+        updatePagination();
+    });
+
+    //--------------------------------------------------------------------------------------
+
+    function generateAllData(tagNames) {
+        const data = [];
+        for (let i = 1; i <= totalData; i++) {
+            const tagName = tagNames[i - 1];
+            const item = {
+                'SID': i.toString(),
+                'TagName': tagName,
+                'Value': (Math.random() * (50 - 10) + 10).toFixed(2) + '°C'
+            };
+            data.push(item);
+        }
+        return data;
+    }
+
+    //---------------------------------------------------------------------------------------
+
+    function buildTable(index, data) {
+        tableBodies[index].innerHTML = '';
+        data.forEach(item => {
+            const row = `<tr>
+                            <td>${item.SID}</td>
+                            <td>${item.TagName}</td>
+                            <td>${item.Value}</td>
+                        </tr>`;
+            tableBodies[index].innerHTML += row;
+        });
+    }
+
+    function filterData(searchTerm) {
+        return allData.filter(item => {
+            return item.TagName.toLowerCase().includes(searchTerm);
+        });
+    }
+
+    function filterDataByColumn(filterTerm, column) {
+        return allData.filter(item => {
+            return item[column].toLowerCase().includes(filterTerm);
+        });
+    }
+
+    //--------------------------------------------------------------------------------------
+
+    function updateTables(filterTerm = '', column = '') {
+        tables.forEach((table, index) => {
+            const startIndex = (index * rowsPerPage) + ((currentPage - 1) * (tables.length * rowsPerPage));
+            let filteredData = allData.slice(startIndex, startIndex + rowsPerPage);
+            if (filterTerm && column) {
+                filteredData = filterDataByColumn(filterTerm, column).slice(index * rowsPerPage, (index + 1) * rowsPerPage);
+            }
+            buildTable(index, filteredData);
+        });
+    }
+
+    //--------------------------------------------------------------------------------------
+
+    function updatePagination() {
+        paginationWrapper.innerHTML = '';
+        const totalPages = Math.ceil(totalData / (tables.length * rowsPerPage));
+        for (let i = 1; i <= totalPages; i++) {
+            const button = document.createElement('button');
+            button.innerText = i;
+            button.classList.add('page');
+            if (i === currentPage) {
+                button.classList.add('active');
+            }
+            button.addEventListener('click', function() {
+                currentPage = i;
+                updateTables(searchTerm);
+                updatePagination();
+            });
+            paginationWrapper.appendChild(button);
+        }
+    }
+
+    updatePagination();
+});

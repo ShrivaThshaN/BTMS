@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Important</title>
+  <link rel="stylesheet" href="index.css">
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: auto;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    .active {
+      background-color: red !important;
+      color: #fff !important;
+    }
+    .paging {
+      position: relative;
+      margin: -40px 0px 50px 700px;
+    }
+    .page {
+      margin: 7px;
+      margin-bottom: 10%;
+      padding: 10px 10px;
+      border: 1px solid #ccc;
+      background-color: #ccc;
+      color: #000;
+      cursor: pointer;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .page:hover {
+      background-color: #000;
+      color: #fff;
+    }
+    th[data-colname="val"],
+    td[data-colname="val"] {
+      width: 10px;
+    }
+    th[data-colname="SID"],
+    td[data-colname="SID"] {
+      height: 10px;
+      width: 10px;
+    }
+    
+    /* New Flexbox styles */
+    .tables-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 10px;
+    }
+    .section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 20px;
+    }
+    
+    section.one,
+    section.two,
+    section.three,
+    section.four,
+    section.five,
+    section.six {
+      flex: 1 1 calc(16.66% - 20px); /* 6 columns layout */
+      min-width: 150px; /* minimum width for each section */
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+    
+    @media (max-width: 1024px) {
+      section.one,
+      section.two,
+      section.three,
+      section.four,
+      section.five,
+      section.six {
+        flex: 1 1 calc(33.33% - 20px); /* 3 columns layout for small screens */
+      }
+    }
+    
+    @media (max-width: 768px) {
+      section.one,
+      section.two,
+      section.three,
+      section.four,
+      section.five,
+      section.six {
+        flex: 1 1 calc(50% - 20px); /* 2 columns layout for smaller screens */
+      }
+    }
+    
+    @media (max-width: 480px) {
+      section.one,
+      section.two,
+      section.three,
+      section.four,
+      section.five,
+      section.six {
+        flex: 1 1 100%; /* 1 column layout for mobile screens */
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="fixed-heading">
+    <h1>Blockpile Temperature Monitoring System</h1>
+  </header>
+
+  <div class="second">
+    <div class="search">
+      <input type="text" id="search-input" placeholder="Search...">
+      <button type="button" id="search-button">Search</button>
+    </div>
+    
+    <div class="button-group">
+      <button type="button" class="filter-button" id="signal-values-button">Signal Values</button>
+      <button type="button" class="filter-button" id="help-button" onclick="navigate()">Print</button>
+      <button type="button" class="filter-button" id="utility-button">Utility</button>
+    </div>
+
+    <div class="filter-bar">
+      <label for="column1-filter">SID:</label>
+      <input type="text" id="column1-filter" placeholder="Filter...">
+      <label for="column2-filter">TagName:</label>
+      <input type="text" id="column2-filter" placeholder="Filter...">
+      <label for="column3-filter">Values:</label>
+      <input type="text" id="column3-filter" placeholder="Filter...">
+    </div>
+  </div>
+
+  <section class="tables-container">
+    <section class="section one">
+      <table id="data-table">
+        <thead>
+          <tr>
+            <th data-colname="SID" class="S">SID &#9650;</th>
+            <th data-colname="TagName" class="Tg">TagName &#9650;</th>
+            <th data-colname="val" class="V">Value &#9650;</th> 
+          </tr>
+        </thead>
+        <tbody id="data-list">
+          <!-- Table rows will be inserted here -->
+        </tbody>
+      </table>
+    </section>
+  
+    <section class="section two">
+      <table id="data-table2">
+        <thead>
+          <tr>
+            <th data-colname="SID" class="S">SID &#9650;</th>
+            <th data-colname="TagName" class="Tg">TagName &#9650;</th>
+            <th data-colname="val" class="V">Value &#9650;</th> 
+          </tr>
+        </thead>
+        <tbody id="data-list2">
+          <!-- Table rows will be inserted here -->
+        </tbody>
+      </table>
+    </section>
+  
+    <section class="section three">
+      <table id="data-table3">
+        <thead>
+          <tr>
+            <th data-colname="SID" class="S">SID &#9650;</th>
+            <th data-colname="TagName" class="Tg">TagName &#9650;</th>
+            <th data-colname="val" class="V">Value &#9650;</th> 
+          </tr>
+        </thead>
+        <tbody id="data-list3">
+          <!-- Table rows will be inserted here -->
+        </tbody>
+      </table>
+    </section>
+  
+    <section class="section four">
+      <table id="data-table4">
+        <thead>
+          <tr>
+            <th data-colname="SID" class="S">SID &#9650;</th>
+            <th data-colname="TagName" class="Tg">TagName &#9650;</th>
+            <th data-colname="val" class="V">Value &#9650;</th> 
+          </tr>
+        </thead>
+        <tbody id="data-list4">
+          <!-- Table rows will be inserted here -->
+        </tbody>
+      </table>
+    </section>
+  
+    <section class="section five">
+      <table id="data-table5">
+        <thead>
+          <tr>
+            <th data-colname="SID" class="S">SID &#9650;</th>
+            <th data-colname="TagName" class="Tg">TagName &#9650;</th>
+            <th data-colname="val" class="V">Value &#9650;</th> 
+          </tr>
+        </thead>
+        <tbody id="data-list5">
+          <!-- Table rows will be inserted here -->
+        </tbody>
+      </table>
+    </section>
+  
+    <section class="section six">
+      <table id="data-table6">
+        <thead>
+          <tr>
+            <th data-colname="SID" class="S">SID &#9650;</th>
+            <th data-colname="TagName" class="Tg">TagName &#9650;</th>
+            <th data-colname="val" class="V">Value &#9650;</th> 
+          </tr>
+        </thead>
+        <tbody id="data-list6">
+          <!-- Table rows will be inserted here -->
+        </tbody>
+      </table>
+    </section>
+  </section>
+
+  <section class="paging">
+    <div class="page-wrapper" id="pagination-wrapper">
+      <!-- Pagination buttons will be inserted here -->
+    </div>
+  </section>
+  <script src="index.js">
+    function navigate() {
+      window.location.href = 'DeltaT.html';
+  }
+
+  </script>
+</body>
+</html>
